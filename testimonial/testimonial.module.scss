@@ -1,0 +1,70 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+  .itemContainer {
+    background: transparent;
+    border: 1px solid rgba(112, 112, 112, 0.26);
+    border-radius: 7px;
+    backdrop-filter: blur(30px);
+    --webkit-backdrop-filter: blur(30px);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.testimonial{
+    .testimonialContainer{
+      width:80%;
+      margin: 0 auto;
+      .testimonialTitle{
+        text-align: center;
+        h3{
+          color:#fff;
+          font-size: 35px;
+          margin: 0;
+          font-weight: 400;
+        }
+      }
+      .testimonialSliders{
+        .testimonialSlider{
+          padding: 20px;
+          .testimonialInnerSlide{
+            background-color: #4C5270;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            .testimonialImage{
+              margin-top: -65px;
+              img{
+                margin: 0 auto;
+                max-width: 100%;
+                display: block;
+                border-radius: 50%;
+                border:2px solid rgba(255,255,255,0.5);
+              }
+            }
+            .testimonialContent{
+              p{
+                color:rgba(255,255,255,0.5);
+                margin:20px 0;
+              }
+              h6{
+                color:rgba(255,255,255,0.5);
+                margin:10px 0 0 0;
+                font-weight: 400;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        
+        .react-multi-carousel-item--active{
+          
+        }
+      }
+    }
+  }
+

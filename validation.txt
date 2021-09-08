@@ -1,0 +1,61 @@
+  const initialState = {
+    subject: "",
+    email: "",
+    text: "",
+    subjectVal: "",
+    emailVal: "",
+    textVal: "",
+    submitting: false
+  }
+  const [state, setState] = useState(initialState)
+  const handleSubmit = async () => {
+    let validated = true
+    if(state.subject === ""){
+      setState(prev => ({...prev, subjectVal: "This field is required"}))
+      validated = false
+    }
+    if(state.text === ""){
+      setState(prev => ({...prev, textVal: "This field is required"}))
+      validated = false
+    }
+    if(!validateEmail(state.email)){
+      setState((prev) => ({ ...prev, emailVal: "Please enter a valid email address" }));
+      validated = false
+    }
+    if(state.email === ""){
+      setState(prev => ({...prev, emailVal: "Email address is required"}))
+      validated = false
+    }
+    if(!validated){
+      return
+    }
+    setState((prev) => ({ ...prev, submitting: true }));
+    await sendMail(state)
+  }
+  const sendMail = async (data) => {
+
+    try {
+      let body={
+        subject: data.subject,
+        email: data.email,
+        text: data.text,
+      }
+      await axios.post("/api/contact", body,)
+      //if sucess do whatever you like, i.e toast notification
+      setTimeout(() => reset(), 2000);
+      setState((prev) => ({ ...prev, submitting: false }));
+      alert.show("Email sent Successfully.", { type: "success" });
+    } catch (error) {
+      console.log(error)
+      setState((prev) => ({ ...prev, submitting: false }));
+      alert.show("Something went wrong.", { type: "error" });
+    }
+
+  }
+  const reset=()=>{
+    setState(initialState);
+  }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setState((prev) => ({ ...prev, [name]: value, [name + "Val"]: "" }));
+  };

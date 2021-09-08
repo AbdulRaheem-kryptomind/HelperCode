@@ -1,0 +1,52 @@
+Function:
+  
+const [showScroll, setShowScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+  })
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+................................................................................................................................................................................................
+JSX :
+
+ <button className={style.scrollTop} onClick={scrollTop} style={{ display: showScroll ? 'flex' : 'none'}}><img src={"/up-arrow.svg"} height={"90%"} width={"90%"}/></button>
+
+.................................................................................................................................................................................................
+
+Css:
+
+.scrollTop {
+  border: none;
+  display: inline-block;
+  background-color: #ff9800;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  z-index: 1000;
+  img{
+    transform: rotateZ(-90deg);
+    margin: 0 auto;
+  }
+}
+
+.scrollTop:hover {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(59, 58, 58, 0.24);
+}

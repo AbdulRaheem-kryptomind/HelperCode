@@ -1,0 +1,132 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 20px;
+  height: 100px;
+  background: transparent;
+  backdrop-filter: blur(17px);
+  --webkit-backdrop-filter: blur(17px);
+  background-color: rgba(255, 255, 255, 0.04);
+
+  .leftWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 40%;
+    height: 100%;
+    .logo {
+      width: 50%;
+      height: 50%;
+    }
+    .logo:hover {
+      cursor: pointer;
+    }
+  }
+  .middleWrapper {
+    display: none;
+    width: 70%;
+    height: 100%;
+    padding: 0px 40px;
+    .activeLink {
+      color: #e4b40e;
+    }
+
+    .menuItem {
+      font-family: Lato;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+      text-align: left;
+      padding: 0px;
+      color: white;
+    }
+
+    .menuItem:hover {
+      color: #e4b40e;
+      cursor: pointer;
+    }
+    .menuItem:active {
+      color: #e4b40e;
+    }
+  }
+  .rightWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    padding: 0px;
+    height: 100%;
+    .buttonWrapper {
+      display: none;
+
+      .button {
+        width: 90%;
+        height: 90%;
+        border: none;
+        width: 165px;
+        border-radius: 8px;
+        background: #e4b40e;
+        filter: 10px;
+        cursor: pointer;
+        box-shadow: 0px 0px 20px 2px#e4b40e;
+        .text {
+          color: #fff;
+          font-weight: normal;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+      .button:active {
+        box-shadow: 0px 2px 4px #e4b40e;
+        transform: scale(0.997);
+      }
+      .button:hover {
+        border-color: #e4b40e;
+        box-shadow: none;
+        background: transparent;
+        border-style: solid;
+        .text {
+          color: #e4b40e;
+        }
+      }
+    }
+    .menuIcon {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    .leftWrapper {
+      justify-content: space-around;
+      width: 15%;
+      .logo {
+        width: 50%;
+        height: 50%;
+      }
+    }
+    .middleWrapper {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .rightWrapper {
+      .buttonWrapper {
+        display: block;
+        height: 55px;
+      }
+      .menuIcon {
+        display: none;
+      }
+    }
+  }
+}
