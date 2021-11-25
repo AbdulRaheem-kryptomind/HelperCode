@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+
+  .left {
+    display: none;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .right {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    background: #0D0E09;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container{
+    flex-direction: row;
+
+    .left {
+     display: flex;
+       width: 18%;
+    }
+    .right {
+      width: 82%;
+      height: 100vh;
+    }
+  }
+}

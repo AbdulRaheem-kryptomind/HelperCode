@@ -1,0 +1,11 @@
+    <DropDown
+                  padding="13px 5px"
+                  selected={selected}
+                  setSelected={setSelected}
+                  options={options}
+                />
+
+.................................................................
+
+  const [selected, setSelected] = useState("Pending");
+  const options = ["Cleared", "Pending", "Cancel"];

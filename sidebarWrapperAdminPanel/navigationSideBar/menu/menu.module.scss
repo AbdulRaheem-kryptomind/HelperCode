@@ -1,0 +1,35 @@
+.buttonWrapper {
+  display: block;
+  height: 55px;
+
+  .button {
+    width: 90%;
+    height: 90%;
+    border: none;
+    width: 165px;
+    border-radius: 8px;
+    background: #e4b40e;
+    filter: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 2px#e4b40e;
+    .text {
+      color: #fff;
+      font-weight: normal;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  .button:active {
+    box-shadow: 0px 2px 4px #e4b40e;
+    transform: scale(0.997);
+  }
+  .button:hover {
+    border-color: #e4b40e;
+    box-shadow: none;
+    background: transparent;
+    border-style: solid;
+    .text {
+      color: #e4b40e;
+    }
+  }
+}
