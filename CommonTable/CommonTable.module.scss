@@ -2,7 +2,7 @@
   width: 100%;
   .heading {
     color: white;
-    font-family: Mulish;
+    font-family: Muli;
     font-weight: normal;
     font-size: 24px;
     padding-bottom: 20px;
@@ -16,8 +16,6 @@
     padding: 0 25px 0 0;
     border-radius: 10px;
     background: #1a1b16;
-    scrollbar-width: thin;
-    scrollbar-color: #db8810 #555;
     //  box-shadow: 0px 6px 16px rgb(0 0 0 / 16%);
     .cardLabel {
       min-width: calc(650px - 20px);
@@ -28,6 +26,7 @@
       display: flex;
       align-items: center;
       border-bottom: 1px solid #707070;
+      justify-content: space-around;
       .container {
         color: white;
         min-width: 14%;
@@ -77,86 +76,176 @@
         }
       }
     }
-    .card {
-      min-height: 50px;
-      min-width: calc(650px - 20px);
-      width: 100%;
-      // background: #393957;
-
-      border-radius: 5px;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      .container {
-        color: white;
-        min-width: 14%;
-        max-width: 14%;
-        font-family: Muli;
-        font-weight: normal;
-        font-size: 12px;
+    .cardWrapper {
+      min-height: 200px;
+      .card {
+        min-height: 50px;
+        min-width: calc(650px - 20px);
+        width: 100%;
+        // background: #393957;
+        justify-content: space-around;
+        border-radius: 5px;
+        padding: 10px 20px;
         display: flex;
-        justify-content: center;
-
-        .coinWrapper {
-          width: 100%;
+        align-items: center;
+        .container {
+          color: white;
+          min-width: 14%;
+          max-width: 14%;
+          font-family: Muli;
+          font-weight: normal;
+          font-size: 12px;
           display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          column-gap: 5px;
-          padding: 5px 0px;
-          padding-left: 10px;
-          text-align: left;
-          img {
+          justify-content: center;
+
+          .coinWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 5px;
+            padding: 5px 0px;
+            padding-left: 10px;
+            text-align: left;
+            img {
+              cursor: pointer;
+            }
+            .icon {
+              column-gap: 5px;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              width: 10%;
+              cursor: pointer;
+              margin-left: 10px;
+              align-items: center;
+              img {
+                width: 100%;
+                max-width: 16px;
+              }
+            }
+            .copyLabel {
+              font-size: 10px;
+            }
+          }
+          .inputContainer {
+            display: flex;
+            border-radius: 7px;
+            background: #232321;
+            border: 1px solid #232321;
+            margin: 10px;
+            width: 100%;
+            margin-top: 10px;
+            align-items: center;
+            justify-content: center;
+            min-height: 25px;
+            max-height: 25px;
+
+            .input {
+              border: none;
+              background: #232321;
+              resize: none;
+              outline: none;
+              color: white;
+              display: flex;
+              flex: 1;
+              width: 100%;
+              appearance: none;
+              padding: 10px;
+              font-size: 12px;
+              text-transform: uppercase;
+              margin: 0px -1px;
+            }
+          }
+          .text {
+            color: #e48d0f;
+            font-weight: normal;
+            font-size: 15px;
+            text-align: center;
+          }
+          .text:hover {
+            border-bottom: 1px solid #e48d0f;
             cursor: pointer;
           }
-        }
-        .inputContainer {
-          display: flex;
-          border-radius: 7px;
-          background: #232321;
-          border: 1px solid #232321;
-          margin: 10px;
-          width: 100%;
-          margin-top: 10px;
-          align-items: center;
-          justify-content: center;
-          min-height: 25px;
-          max-height: 25px;
-
-          .input {
-            border: none;
-            background: #232321;
-            resize: none;
-            outline: none;
-            color: white;
+          .text:active {
+            border-bottom: 1px solid #e48d0f;
+            cursor: pointer;
+          }
+          .statusButtonWrapper {
             display: flex;
-            flex: 1;
-            width: 100%;
-            appearance: none;
-            padding: 10px;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin: 0px -1px;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 42px;
+            border-radius: 8px;
+            background: #2a5a2b;
+            margin: auto;
+
+            .label {
+              color: white;
+              font-size: 14px;
+            }
           }
         }
-        .text {
-          color: #e48d0f;
-          font-weight: normal;
-          font-size: 15px;
-          text-align: center;
+      }
+    }
+
+    .emptyContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      .empty {
+        font-size: 80px;
+        color: #616161;
+        margin-top: 50px;
+      }
+      .emptyText {
+        padding-top: 20px;
+        color: #888888;
+        font-size: 20px;
+        margin-bottom: 50px;
+      }
+    }
+    .spinnerWrapper {
+      display: flex;
+      margin: 50px 0px;
+      justify-content: center;
+      align-items: center;
+      .spinner {
+        border: 6px solid #0d0e09;
+        border-radius: 50%;
+        border-top: 6px solid #e48d0f;
+        width: 75px;
+        height: 75px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
         }
-        .text:hover {
-          border-bottom: 1px solid #e48d0f;
-          cursor: pointer;
+        100% {
+          -webkit-transform: rotate(360deg);
         }
-        .text:active {
-          border-bottom: 1px solid #e48d0f;
-          cursor: pointer;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     }
   }
 }
+
 @media (min-width: 576px) {
   .container {
     .heading {
@@ -171,20 +260,29 @@
           }
         }
       }
-      .card {
-        .container {
-          font-size: 14px;
+      .cardWrapper {
+        .card {
+          .container {
+            font-size: 14px;
 
-          .coinWrapper {
-            column-gap: 10px;
-            padding-left: 20px;
-          }
-          .text {
-            font-size: 15px;
-          }
-          .text:hover {
-          }
-          .text:active {
+            .coinWrapper {
+              column-gap: 10px;
+              padding-left: 20px;
+            }
+            .text {
+              font-size: 15px;
+            }
+            .text:hover {
+            }
+            .text:active {
+            }
+            .icon {
+              width: 6%;
+              cursor: pointer;
+            }
+            .copyLabel {
+              font-size: 12px;
+            }
           }
         }
       }

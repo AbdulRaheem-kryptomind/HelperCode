@@ -1,5 +1,11 @@
 import React from "react";
 import styles from "./CommonTable.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDownload,
+  faSyncAlt,
+  faExclamationTriangle,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function CommonTable({
   heading,
@@ -7,14 +13,16 @@ export default function CommonTable({
   maxHeight,
   getId,
   column,
+  submitting,
 }) {
-
   const getItem = (dataItem, columnItem) => {
     if (columnItem.render) {
-      return columnItem.render(dataItem[columnItem.key],dataItem);
+      return columnItem.render(dataItem[columnItem.key], dataItem);
     } else {
       // return <div>{dataItem[columnItem.key]}</div>;
-      return <span className={styles.coinWrapper}>{dataItem[columnItem.key]}</span>;
+      return (
+        <span className={styles.coinWrapper}>{dataItem[columnItem.key]}</span>
+      );
     }
   };
   return (
@@ -38,25 +46,45 @@ export default function CommonTable({
               );
             })}
         </div>
-
-        {data.map((dataItem) => (
-          <div className={styles.card}>
-            {column.map((columnItem, index) => {
-              return (
-                <div
-                  className={styles.container}
-                  style={{
-                    minWidth: `${100 / column.length}%`,
-                    maxWidth: `${100 / column.length}%`,
-            
-                  }}
-                >
-                  {getItem(dataItem, columnItem)}
-                </div>
-              );
-            })}
+        {submitting ? (
+          <div className={styles.spinnerWrapper}>
+            <div className={styles.spinner}></div>
           </div>
-        ))}
+        ) : (
+          <>
+            {data.length > 0 ? (
+             <div className={styles.cardWrapper}>
+                {data.map((dataItem) => (
+               
+                    <div className={styles.card}>
+                      {column.map((columnItem, index) => {
+                        return (
+                          <div
+                            className={styles.container}
+                            style={{
+                              minWidth: `${100 / column.length}%`,
+                              maxWidth: `${100 / column.length}%`,
+                            }}
+                          >
+                            {getItem(dataItem, columnItem)}
+                          </div>
+                        );
+                      })}
+                    </div>
+                
+                ))}
+                </div>
+            ) : (
+              <div className={styles.emptyContainer}>
+                <FontAwesomeIcon
+                  icon={faExclamationTriangle}
+                  className={styles.empty}
+                />
+                <span className={styles.emptyText}>No Data Available</span>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
