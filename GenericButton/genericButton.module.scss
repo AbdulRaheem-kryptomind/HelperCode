@@ -25,9 +25,12 @@
       color: #fff;
       text-transform: uppercase;
     }
-    img{
+    img {
       height: 100%;
       margin-bottom: 7px;
+    }
+    .loadingColor {
+      color: #fff;
     }
   }
   .button:active {
@@ -38,6 +41,9 @@
     border: 1px solid #e48d0f;
     background: transparent;
     .text {
+      color: #e48d0f;
+    }
+    .loadingColor {
       color: #e48d0f;
     }
   }

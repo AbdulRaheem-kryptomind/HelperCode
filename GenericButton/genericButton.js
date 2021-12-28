@@ -1,23 +1,51 @@
+import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import styles from "./genericButton.module.scss";
 
-const GenericButton = ({ title, onClick, icon, inline, fontsize,iconActive }) => {
+const GenericButton = ({
+  title,
+  onClick,
+  icon,
+  fontsize,
+  iconActive,
+  submitting,
+}) => {
   const [hovered, sethovered] = useState(false);
   const handleActive = (state) => {
     sethovered(state);
+  };
+  let renderBtn = () => {
+    if (submitting) {
+      return (
+        <>
+          <FontAwesomeIcon icon={faSyncAlt} spin className={styles.loadingColor}/>{" "}
+          <span
+            className={styles.text}
+            style={{ fontSize: `${fontsize ? fontsize : ""}` }}
+          >
+            Submitting...
+          </span>
+        </>
+      );
+    }
+    return (
+      <span
+        className={styles.text}
+        style={{ fontSize: `${fontsize ? fontsize : ""}` }}
+      >
+        {title}
+      </span>
+    );
   };
   return (
     <div className={styles.buttonWrapper} onClick={onClick}>
       <button
         className={styles.button}
-        style={{
-          background: inline && hovered ? "#E48D0F" : "",
-          borderColor: inline ? "#E48D0F" : "",
-        }}
         onMouseOver={() => handleActive(true)}
         onMouseOut={() => handleActive(false)}
       >
-        {icon && (
+        {!submitting&&icon && (
           <>
             {hovered ? (
               <img
@@ -31,12 +59,8 @@ const GenericButton = ({ title, onClick, icon, inline, fontsize,iconActive }) =>
             )}
           </>
         )}
-        <span
-          className={styles.text}
-          style={{ fontSize: `${fontsize ? fontsize : ""}` }}
-        >
-          {title}
-        </span>
+
+        {renderBtn()}
       </button>
     </div>
   );
